@@ -4,10 +4,21 @@
 			<li><a href="index.php">Home <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 			<li><a href="">Foods <i class="fa fa-angle-right" aria-hidden="true"></a></i>
 				<ul>
-					<li><a href="">Category</a></li>
-					<li><a href="">Category</a></li>
-					<li><a href="">Category</a></li>
-					<li><a href="">Category</a></li>
+					<li><a href="foods.php?">All</a></li>
+
+					<?php 
+
+					$cat_query = "SELECT * FROM category";
+					$cat_result = mysqli_query($connection, $cat_query);
+
+					while($row = mysqli_fetch_assoc($cat_result)){
+
+					 ?>
+
+					<li><a href="foods.php?id=<?php echo $row['id'];?>&name=<?php echo $row['category']; ?>"><?php echo $row['category']; ?></a></li>
+
+				<?php } ?>
+
 				</ul>
 			</li>
 			<li><a href="">My Account <i class="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -31,7 +42,7 @@
 			<li><a href="contact.php">Contact <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 				
 			</li>
-
+		</ul>	
 	</div><!-- side-menu -->
 
 

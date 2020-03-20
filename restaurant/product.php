@@ -1,40 +1,22 @@
 <?php session_start(); ?>
-
+<?php include('inc/connection.php'); ?>
 <?php include('inc/product_nav.php'); ?>
 
-<section class="header">
-	<div class="side-menu" id="side-menu">
-		<ul>
-			<li><a href="index.php">Home <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-			<li><a href="">Foods <i class="fa fa-angle-right" aria-hidden="true"></a></i>
-				<ul>
-					<li><a href="">Category</a></li>
-					<li><a href="">Category</a></li>
-					<li><a href="">Category</a></li>
-					<li><a href="">Category</a></li>
-				</ul>
-			</li>
-			<li><a href="">My Account <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-				<ul>
-					<li><a href="">My Orders</a></li>
-					<li><a href="">Log Out</a></li>
-				</ul>
-			</li>
-			<li><a href="track.php">Track Order <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-				
-			</li>
+<!-- side-menu -->
+<?php include('inc/side_menu.php'); ?>
+<!-- side-menu -->
 
-			<li><a href="reserve.php">Reserve Tables <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-				
-			</li>
+<?php 
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+	$id = $_GET['id'];
+	$foodsql = "SELECT * FROM foods WHERE id = $id";
+	$result = mysqli_query($connection, $foodsql);
+	$foodrow = mysqli_fetch_assoc($result);
+}else{
+	header('Location:foods.php');
+}
 
-			<li><a href="contact.php">Contact <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-				
-			</li>
-
-	</div><!-- side-menu -->
-
-<!-- single product -->
+ ?>
 
 <section class="single-product">
 	<div class="container">
@@ -43,13 +25,13 @@
 				<div id="product-slider" class="carousel slide" data-ride="carousel">
 				  <div class="carousel-inner">
 				    <div class="carousel-item active">
-				      <img src="img/product/p1.jpg" class="d-block" alt="...">
+				      <img src="<?=$foodrow['thumbnail']?>" class="d-block" alt="...">
 				    </div>
 				    <div class="carousel-item">
-				      <img src="img/product/p1.jpg" class="d-block" alt="...">
+				      <img src="<?=$foodrow['thumbnail']?>" class="d-block" alt="...">
 				    </div>
 				    <div class="carousel-item">
-				      <img src="img/product/p1.jpg" class="d-block" alt="...">
+				      <img src="<?=$foodrow['thumbnail']?>" class="d-block" alt="...">
 				    </div>
 				  </div>
 				  <a class="carousel-control-prev" href="#product-slider" role="button" data-slide="prev">
@@ -65,7 +47,7 @@
 
 			<div class="col-md-7">
 				<p class="new-arrival text-center">NEW</p>
-				<h2 class="food-title">Sample Food Title</h2>
+				<h2 class="food-title"><?php echo $foodrow['name']; ?></h2>
 				<p>Product Code : ASFI0001</p>
 				<i class="fa fa-star"></i>
 				<i class="fa fa-star"></i>
@@ -73,7 +55,7 @@
 				<i class="fa fa-star"></i>
 				<i class="fa fa-star-half-o"></i>
 
-				<p class="price">Rs.150.00</p>
+				<p class="price">Rs. <?php echo number_format($foodrow['price'],2); ?></p>
 				<form>
 				<label>Quantity :</label>
 				<input type="numer" name="qty" class="" value="1"><br>	
@@ -91,16 +73,14 @@
 <section class="product-description">
 	<div class="container">
 		<h2>Food Description</h2>
-		<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		<p class="description"><?php echo $foodrow['description'] ?><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum. --></p>
 	</div><!-- container -->
 </section>
-
-<!-- similar foods -->
 
 <section class="more-foods">
 	<div class="container">
@@ -225,4 +205,6 @@
 	</div><!-- container -->
 </section>
 
+
 <?php include('inc/footer.php'); ?>
+

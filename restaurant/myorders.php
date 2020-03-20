@@ -1,10 +1,11 @@
 <?php session_start(); ?>
 <?php include('inc/connection.php'); ?>
+<?php include('inc/connection.php'); ?>
 
 <?php 
 //checking if user is registered
 	if (!isset($_SESSION['user_id'])) {
-		header('Location:index.php');
+	 header('Location:index.php?');
 	}
  ?>
 
