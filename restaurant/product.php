@@ -72,15 +72,91 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
 <section class="product-description">
 	<div class="container">
-		<h2>Food Description</h2>
-		<p class="description"><?php echo $foodrow['description'] ?><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum. --></p>
-	</div><!-- container -->
-</section>
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	  <li class="nav-item">
+	    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><h2 style="color: orange; font-size: 18px;">Food Description</h2></a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><h2 style="color: orange; font-size: 18px;">Customer Reviews</h2></a>
+	  </li>
+	</ul>
+	<div class="tab-content" id="myTabContent">
+	  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+	  	<p class="description mt-2"><?php echo $foodrow['description'] ?></p>
+	  </div>
+	  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+	  	<h6 class="mt-2" style="color: grey;">Reviews for <?php echo $foodrow['name']; ?></h6>
+	  		<ul class="comment-list">
+	  			<li class="mt-3 mb-3">	
+	  				<div class="comment-meta">
+	  					<a href="#">Sapna Madurangi</a>
+						<span>
+						<small>Feb 17, 2015, at 11:34</small>
+						</span>
+	  				</div>
+	  				<div class="comment">
+	  					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	  					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	  					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	  					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	  					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	  				</div>
+	  			</li>
+
+	  			<li class="mt-3 mb-3">	
+	  				<div class="comment-meta">
+	  					<a href="#">Sapna Madurangi</a>
+						<span>
+						<small>Feb 17, 2015, at 11:34</small>
+						</span>
+	  				</div>
+	  				<div class="comment">
+	  					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	  					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	  					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	  					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	  					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	  				</div>
+	  			</li>
+
+	  			<li class="mt-3 mb-3">	
+	  				<div class="comment-meta">
+	  					<a href="#">Sapna Madurangi</a>
+						<span>
+						<small>Feb 17, 2015, at 11:34</small>
+						</span>
+	  				</div>
+	  				<div class="comment">
+	  					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	  					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	  					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	  					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	  					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	  				</div>
+	  			</li>
+	  		</ul>
+	  	<h6 class="mt-2" style="color: grey;">Add a Review</h6>
+	  		<form >
+			  <div class="form-row">
+			    <div class="col">
+			      <input type="text" class=" form-control" placeholder="First name" required="">
+			    </div>
+			    <div class="col">
+			      <input type="text" class=" form-control" placeholder="Last name" required="">
+			    </div>
+			  </div>
+			 <div class="form-group mt-4">
+			  <textarea class="form-control" rows="5" placeholder="Enter Your Review Here..."></textarea>
+			 </div>
+			 <button type="submit" class="btn btn-warning" style="color: white;">Submit</button>
+			</form>
+	  </div>
+	</div>
+	</div>	
+</section><!-- product-review -->
 
 <section class="more-foods">
 	<div class="container">

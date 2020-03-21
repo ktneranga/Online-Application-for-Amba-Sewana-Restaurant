@@ -26,7 +26,7 @@ body{
 	margin: 5px 10px;
 }
 
-.form-control {
+.form-control-search {
 	margin-top: 9px;
 	margin-left: 30px;
 	border: 1px solid orange !important;
@@ -431,7 +431,7 @@ footer hr{
 	font-size: 18px;
 }
 
-.description{
+.description {
 	color: grey;
 	font-size: 14px;
 }
@@ -454,4 +454,20 @@ footer hr{
 	width: 350px;
 	height: 350px;
 }*/
+
+ul{
+	list-style: none;
+}
+
+.comment-meta a{
+	color: orange;
+	font-size: 18px;
+	margin-right: 15px;
+	text-decoration: none;
+}
+
+.comment{
+	color: grey;
+	font-size: 14px;
+}
 

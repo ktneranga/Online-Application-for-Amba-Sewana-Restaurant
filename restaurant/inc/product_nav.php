@@ -44,8 +44,8 @@
 		<i class="fa fa-times" aria-hidden="true" id="close-btn" onclick="closemenu()"></i>
 		<a href="index.php" title="Home"><img src="img/logo/logo1.png" class="logo"></a>
 		<!-- <h2 class="logo">Amba Sewana</h2> -->
-		<input type="text" name="search-box" class="form-control">
-		</a><span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
+		<!-- <input type="text" name="search-box" class="form-control">
+		</a><span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span> -->
 	</div><!-- search-box -->
 <div class="menu-bar">
 	<ul>
