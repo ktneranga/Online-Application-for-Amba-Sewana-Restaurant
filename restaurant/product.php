@@ -8,8 +8,8 @@
 
 <?php 
 if (isset($_GET['id']) && !empty($_GET['id'])) {
-	$id = $_GET['id'];
-	$foodsql = "SELECT * FROM foods WHERE id = $id";
+	$idpro = $_GET['id'];
+	$foodsql = "SELECT * FROM foods WHERE id = $idpro";
 	$result = mysqli_query($connection, $foodsql);
 	$foodrow = mysqli_fetch_assoc($result);
 }else{
@@ -56,10 +56,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 				<i class="fa fa-star-half-o"></i>
 
 				<p class="price">Rs. <?php echo number_format($foodrow['price'],2); ?></p>
-				<form>
-				<label>Quantity :</label>
-				<input type="numer" name="qty" class="" value="1"><br>	
-				<button type="submit" class="btn btn-primary">Add to Cart</button>
+				<form method="post" action="cart.php?action=addToCart&id=">
+					<label>Quantity :</label>
+					<input type="product-quantity" class="" name="quantity" id="quantity" value="1" size="2">
+					<input type="hidden" name="id" id="id" value="<?php echo $foodrow['id']; ?>"><br>	
+					<button type="submit" class="btn btn-primary" name="add">Add to Cart</button>
 				</form>
 				
 			</div>
