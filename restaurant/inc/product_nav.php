@@ -49,7 +49,16 @@
 	</div><!-- search-box -->
 <div class="menu-bar">
 	<ul>
-		<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></li>
+		<li><a href="cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+			<?php
+				if(!empty($_SESSION['cart'])){
+                    $count = count($_SESSION['cart']);
+                    echo "<span id='cart_count' class='text-danger bg-light' style='border-radius: 3px;padding:1px;margin-left: 4px;'>$count</span>";
+                }else{
+                    echo " ";
+                }
+			?>
+		</a></li>
     <?php if (!empty($_SESSION['user_id'])) { ?>
       <!-- loged in user items go here -->
       <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Hi <?php echo $_SESSION['first_name']; ?></a></li>

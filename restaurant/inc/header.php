@@ -35,7 +35,14 @@
 				
 			</li>
 
-			<li><a href="cart.php">Cart <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+			<li><a href="cart.php">Cart <?php
+				if(!empty($_SESSION['cart'])){
+                    $count = count($_SESSION['cart']);
+                    echo "<span id='cart_count' class='text-danger bg-light' style='border-radius: 3px;padding:1px;margin-left: 4px;'>$count</span>";
+                }else{
+                    echo " ";
+                }
+			?><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 				
 			</li>
 

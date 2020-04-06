@@ -2,7 +2,9 @@
 <!-- login modal start -->
 
 <?php 
-
+  if (!isset($_SESSION['cart'])) {
+      $_SESSION['cart'] = [];
+  }
   //check for submission
 
   if (isset($_POST['submit'])) {

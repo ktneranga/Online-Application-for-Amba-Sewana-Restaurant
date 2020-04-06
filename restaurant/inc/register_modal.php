@@ -22,7 +22,8 @@ if (isset($_POST['register_submit'])) {
   $req_fields = array('First_Name','Last_Name','Email','Password','Confirm_Password');
 
   foreach ($req_fields as  $field) {
-      if (empty(trim($_POST[$field]))) {
+      $trimDir = trim($_POST[$field]);
+      if (empty($trimDir)) {
       $errors[] = $field.' is required.';
     }
   }
